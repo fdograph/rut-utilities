@@ -1,6 +1,7 @@
 {
   "name": "@fdograph/rut-utilities",
   "version": "1.0.0",
+  "repository": "https://github.com/fdograph/rut-utilities",
   "description": "Utility functions to parse, validate and generate a Chilean R.U.T.",
   "main": "build/main.js",
   "scripts": {
@@ -9,7 +10,8 @@
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "publish": "npm run clean && npm run build && npm publish --access public"
   },
   "keywords": [
     "chile",
