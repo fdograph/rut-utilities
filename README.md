@@ -4,6 +4,7 @@
 
 <details>
   <summary><strong>Table of Contents</strong></summary>
+  
 - <a href="#intro">:speech_balloon: Intro</a>
 - <a href="#getting-started">:rocket: Getting Started</a>
 - <a href="#usage">:wrench: Usage</a>
