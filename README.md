@@ -18,7 +18,8 @@
 ## :speech_balloon: Intro
 
 >Set of utility functions to parse, validate and generate a [Chilean R.U.T.](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario)
->Meant for developer who want to interact, manipulate and validate Chilean R.U.T.
+>
+>Meant for developers who want to interact, manipulate and validate Chilean R.U.T.
 
 <div id="dependencies"></div>
 
@@ -52,7 +53,7 @@ $ yarn add @fdograph/rut-utilities
 
 > `validateRut(rut: string) => boolean`
 
-Returns true if the passed `string` corresponds to a fully valid R.U.T.
+Returns `true` if the passed `string` corresponds to a fully valid R.U.T.
 
 ```bash
 import { validateRut } from '@fdograph/rut-utilities';
@@ -68,15 +69,15 @@ validateRut('9.999.999-9');
 ```
 ---
 
-> `formatRut(rut: string, format?: RutFormat) => string`
+> `formatRut(rut: string, format?: RutFormat = RutFormat.DASH) => string`
 
-Formats a `rut-like` string according to the `format` parameter.
+Formats a `rut-like` string according to the `format` parameter or returns the instact string if this doesn't match a `rut-like` string pattern.
 
 ```javascript
 enum RutFormat {
-	DOTS  =  0,
-	DASH  =  1,
-	DOTS_DASH  =  2
+	DOTS,
+	DASH,
+	DOTS_DASH
 }
 ```
 ```bash
