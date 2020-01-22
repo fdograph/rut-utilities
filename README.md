@@ -98,8 +98,6 @@ You can see the full set of utility functions in the [Tests](src/tests/index.tes
 
 ## :page_facing_up: License
 
->Your License
-
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
 
 <a href="#contents">:top: <sub>back to top</sub></a>
