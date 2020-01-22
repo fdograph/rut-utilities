@@ -1,10 +1,10 @@
 {
   "name": "@fdograph/rut-utilities",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": "https://github.com/fdograph/rut-utilities",
   "description": "Utility functions to parse, validate and generate a Chilean R.U.T.",
-  "main": "build/src/main.js",
-  "types": "build/src/main.d.ts",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
   "scripts": {
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
@@ -23,10 +23,7 @@
     "identidad"
   ],
   "author": "Fernando Silva M. (@fdograph)",
-  "license": "ISC",
-  "engines": {
-    "node": ">= 12.13 <13"
-  },
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "~24.0.25",
     "@types/node": "~12.12.22",

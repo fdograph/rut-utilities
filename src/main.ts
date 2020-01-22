@@ -20,7 +20,7 @@ export const formatRut = (rut: string, format = RutFormat.DASH): string => {
     case RutFormat.DOTS:
       return rut.replace(
         rutLikePattern(),
-        (...args) => `${args[1] ? `${args[1]}.` : ''}${args[2]}.${args[3]}${args[4]}`,
+        (...args) => `${args[1] ? `${args[1]}.` : ''}${args[2]}.${args[3]}${args[4]}`
       );
 
     case RutFormat.DASH:
@@ -29,7 +29,7 @@ export const formatRut = (rut: string, format = RutFormat.DASH): string => {
     case RutFormat.DOTS_DASH:
       return rut.replace(
         rutLikePattern(),
-        (...args) => `${args[1] ? `${args[1]}.` : ''}${args[2]}.${args[3]}-${args[4]}`,
+        (...args) => `${args[1] ? `${args[1]}.` : ''}${args[2]}.${args[3]}-${args[4]}`
       );
 
     default:

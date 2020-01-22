@@ -8,7 +8,7 @@ import {
   validateRut,
   formatRut,
   generateRut,
-  RutFormat
+  RutFormat,
 } from '../main';
 
 describe('isRutLike', () => {
@@ -158,7 +158,7 @@ describe('formatRut', () => {
 
     expect(formatRut('ne93jkdf39f-')).toEqual('ne93jkdf39f-');
     expect(formatRut('')).toEqual('');
-  })
+  });
 });
 
 describe('generateRut', () => {
