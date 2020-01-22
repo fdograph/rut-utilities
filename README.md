@@ -77,6 +77,9 @@ formatRut('44333222-1', RutFormat.DOTS_DASH);
 
 formatRut('44333222-1', RutFormat.DOTS);
 > '44.333.2221'
+
+formatRut('jg7gk-1', RutFormat.DOTS);
+> 'jg7gk-1'
 ```
 
 You can see the full set of utility functions in the [Tests](src/tests/index.test.ts)
