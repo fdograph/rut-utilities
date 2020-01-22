@@ -4,13 +4,10 @@
 
 <details>
   <summary><strong>Table of Contents</strong></summary>
-
 - <a href="#intro">:speech_balloon: Intro</a>
-- <a href="#dependencies">:package: Dependencies</a>
 - <a href="#getting-started">:rocket: Getting Started</a>
 - <a href="#usage">:wrench: Usage</a>
 - <a href="#license">:page_facing_up: License</a>
-
 </details>
 
 <div id="intro"></div>
@@ -21,17 +18,6 @@
 >
 >Meant for developers who want to interact, manipulate and validate Chilean R.U.T.
 
-<div id="dependencies"></div>
-
-## :package: Dependencies
-
->Dependencies that are needed by people who want to install your project
->For example:
-
-- [Node.js](https://nodejs.org/en/)
-- [NPM](https://www.npmjs.com/) or [YARN](https://yarnpkg.com/lang/en/)
-
-<a href="#contents">:top: <sub>back to top</sub></a>
 
 <div id="getting-started"></div>
 
