@@ -101,7 +101,7 @@ describe('calculateRutVerifier', () => {
       expect(calculateRutVerifier(digits)).toEqual(expectedVerifier);
     });
   });
-})
+});
 
 describe('validateRut', () => {
   it('Should validate a rut-like string', () => {
