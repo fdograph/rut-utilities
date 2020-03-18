@@ -56,6 +56,25 @@ validateRut('9.999.999-9');
 ```
 ---
 
+> `validateRutList(rut: string) => Map<string, boolean>`
+
+Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
+
+```bash
+import { validateRutList } from '@fdograph/rut-utilities';
+
+const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
+const result = validateRutList(validRuts);
+
+result.get('7775735-k');
+> true
+
+result.get(validRuts[1]);
+> true
+
+```
+---
+
 > `formatRut(rut: string, format?: RutFormat = RutFormat.DASH) => string`
 
 Formats a `rut-like` string according to the `format` parameter or returns the instact string if this doesn't match a `rut-like` string pattern.

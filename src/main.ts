@@ -63,6 +63,15 @@ export const validateRut = (rut: string, noSuspicious = true): boolean => {
   return true;
 };
 
+type RutListResult = Map<string, boolean>;
+
+export const validateRutList = (ruts: string[], noSuspicious = true): RutListResult => {
+  return ruts.reduce<RutListResult>((result, rut) => {
+    result.set(rut, validateRut(rut, noSuspicious));
+    return result;
+  }, new Map<string, boolean>());
+};
+
 export const generateRut = (): string => {
   const digits = Math.floor(10000003 + Math.random() * 90000000).toString();
   const verifier = calculateRutVerifier(digits);

@@ -9,6 +9,7 @@ import {
   formatRut,
   generateRut,
   RutFormat,
+  validateRutList,
 } from '../main';
 
 describe('isRutLike', () => {
@@ -135,6 +136,24 @@ describe('validateRut', () => {
 
       expect(on).toEqual(false);
       expect(off).toEqual(false);
+    });
+  });
+});
+
+describe('validateRutList', () => {
+  it('Should validate a list of rut-like strings', () => {
+    const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
+    const validResult = validateRutList(validRuts);
+    
+    validRuts.forEach((r) => {
+      expect(validResult.get(r)).toEqual(true);
+    });
+
+    const invalidRuts = ['', '9.999.999-9', '14355245-5', '34566754-k', '12.344.568-4', '32.456.356-k'];
+    const invalidResult = validateRutList(invalidRuts);
+    
+    invalidRuts.forEach((r) => {
+      expect(invalidResult.get(r)).toEqual(false);
     });
   });
 });
