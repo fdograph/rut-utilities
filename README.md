@@ -58,7 +58,7 @@ validateRut('9.999.999-9');
 
 > `validateRutList(rut: string) => Map<string, boolean>`
 
-Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
+Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which each entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
 
 ```bash
 import { validateRutList } from '@fdograph/rut-utilities';
