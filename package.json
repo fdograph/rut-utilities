@@ -1,6 +1,6 @@
 {
   "name": "@fdograph/rut-utilities",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "repository": "https://github.com/fdograph/rut-utilities",
   "description": "Utility functions to parse, validate and generate a Chilean R.U.T.",
   "main": "build/main.js",
