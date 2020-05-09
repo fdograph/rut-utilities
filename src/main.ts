@@ -7,6 +7,15 @@ export const cleanRut = (rut: string): string => isRutLike(rut) ? rut.replace(/[
 export const getRutDigits = (rut: string): string => cleanRut(rut).slice(0, -1);
 export const getRutVerifier = (rut: string): string => cleanRut(rut).slice(-1);
 
+type DeconstructedRut = {
+  digits: string;
+  verifier: string;
+};
+export const deconstructRut = (rut: string): DeconstructedRut => ({
+  digits: getRutDigits(rut),
+  verifier: getRutVerifier(rut),
+});
+
 export enum RutFormat {
   DOTS,
   DASH,
@@ -64,7 +73,6 @@ export const validateRut = (rut: string, noSuspicious = true): boolean => {
 };
 
 type RutListResult = Map<string, boolean>;
-
 export const validateRutList = (ruts: string[], noSuspicious = true): RutListResult => {
   return ruts.reduce<RutListResult>((result, rut) => {
     result.set(rut, validateRut(rut, noSuspicious));
