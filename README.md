@@ -47,7 +47,7 @@ $ yarn add @fdograph/rut-utilities
 
 Returns `true` if the passed `string` corresponds to a fully valid R.U.T.
 
-```bash
+```javascript
 import { validateRut } from '@fdograph/rut-utilities';
 
 validateRut('18585543-0');
@@ -65,7 +65,7 @@ validateRut('9.999.999-9');
 
 Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which each entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
 
-```bash
+```javascript
 import { validateRutList } from '@fdograph/rut-utilities';
 
 const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
@@ -84,14 +84,14 @@ result.get(validRuts[1]);
 
 Formats a `rut-like` string according to the `format` parameter or returns the instact string if this doesn't match a `rut-like` string pattern.
 
-```javascript
+```typescript
 enum RutFormat {
 	DOTS,
 	DASH,
 	DOTS_DASH
 }
 ```
-```bash
+```javascript
 import { formatRut, RutFormat } from '@fdograph/rut-utilities';
 
 formatRut('44.333.222-1');
