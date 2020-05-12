@@ -1,5 +1,7 @@
 # 🇨🇱 Chilean Rut Utilities 🇨🇱
 
+![Test Image 1](badges/badge-branches.svg)
+
 <div id="contents"></div>
 
 <details>
