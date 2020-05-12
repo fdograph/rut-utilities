@@ -10,6 +10,7 @@ import {
   generateRut,
   RutFormat,
   validateRutList,
+  deconstructRut,
 } from '../main';
 
 describe('isRutLike', () => {
@@ -87,6 +88,17 @@ describe('getRutVerifier', () => {
   it('Should get the verifier of rut-like string or an empty string', () => {
     expect(getRutVerifier('13.543.343-k')).toEqual('k');
     expect(getRutVerifier('fnekcsnsdk')).toEqual('');
+  });
+});
+
+describe('deconstructRut', () => {
+  it('Should deconstruct a rut-like string and return an object', () => {
+    const rut = '7775735-k';
+
+    expect(deconstructRut(rut)).toEqual({
+      digits: '7775735',
+      verifier: 'k',
+    });
   });
 });
 
