@@ -1,6 +1,6 @@
 {
   "name": "@fdograph/rut-utilities",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": "https://github.com/fdograph/rut-utilities",
   "description": "Utility functions to parse, validate and generate a Chilean R.U.T.",
   "main": "build/main.js",
@@ -16,9 +16,11 @@
   "keywords": [
     "chile",
     "chilean",
-    "rut",
+    "chileno",
     "validator",
+    "validador",
     "run",
+    "rut",
     "cedula",
     "identidad"
   ],
