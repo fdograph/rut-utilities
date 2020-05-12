@@ -107,7 +107,7 @@ formatRut('jg7gk-1', RutFormat.DOTS);
 > 'jg7gk-1'
 ```
 
-You can see the full set of utility functions in the [Tests](src/tests/index.test.ts)
+You can see the full set of utility functions in the [Tests](src/tests/main.test.ts)
 
 <div id="license"></div>
 
