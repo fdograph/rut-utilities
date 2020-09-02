@@ -68,8 +68,7 @@ export const calculateRutVerifier = (digits: string): string => {
 export const validateRut = (rut: string, noSuspicious = true): boolean => {
   if (!isRutLike(rut)) return false;
   if (noSuspicious && isSuspiciousRut(rut)) return false;
-  if (getRutVerifier(rut) !== calculateRutVerifier(getRutDigits(rut))) return false;
-  return true;
+  return getRutVerifier(rut) === calculateRutVerifier(getRutDigits(rut));
 };
 
 type RutListResult = Map<string, boolean>;
@@ -81,6 +80,7 @@ export const validateRutList = (ruts: string[], noSuspicious = true): RutListRes
 };
 
 export const generateRut = (): string => {
+  // tslint:disable-next-line:insecure-random
   const digits = Math.floor(10000003 + Math.random() * 90000000).toString();
   const verifier = calculateRutVerifier(digits);
   return formatRut(digits + verifier);

@@ -107,6 +107,35 @@ formatRut('jg7gk-1', RutFormat.DOTS);
 > 'jg7gk-1'
 ```
 
+---
+
+> `deconstructRut(rut: string) => DeconstructedRut`
+
+Returns an object containing the RUT's `digits` and `verifier`.
+
+You can use [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to access each.
+
+```typescript
+type DeconstructedRut = {
+  digits: string;
+  verifier: string;
+}
+```
+
+```javascript
+import { deconstructRut } from '@fdograph/rut-utilities';
+
+const { digits, verifier } = deconstructRut('7775735-k');
+
+console.log(digits);
+> '7775735'
+
+console.log(verifier);
+> 'k'
+
+```
+---
+
 You can see the full set of utility functions in the [Tests](src/tests/main.test.ts)
 
 <div id="license"></div>
