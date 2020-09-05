@@ -5,6 +5,8 @@
 ![Coverage - Lines](badges/badge-lines.svg)
 ![Coverage - Statements](badges/badge-statements.svg)
 
+### [:uk: English version](README.md)
+
 <div id="contents"></div>
 
 <details>
