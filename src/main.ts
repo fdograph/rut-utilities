@@ -20,7 +20,7 @@ export enum RutFormat {
   DOTS,
   DASH,
   DOTS_DASH,
-};
+}
 
 export const formatRut = (rut: string, format = RutFormat.DASH): string => {
   if (!isRutLike(rut)) return rut;

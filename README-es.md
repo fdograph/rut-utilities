@@ -8,27 +8,27 @@
 <div id="contents"></div>
 
 <details>
-  <summary><strong>Table of Contents</strong></summary>
+  <summary><strong>Tabla de contenidos:</strong></summary>
   
-- <a href="README.md">:es: Versión en Español</a>
-- <a href="#intro">:speech_balloon: Intro</a>
-- <a href="#getting-started">:rocket: Getting Started</a>
-- <a href="#usage">:wrench: Usage</a>
-- <a href="#license">:page_facing_up: License</a>
+- <a href="README.md">:uk: English version</a>
+- <a href="#intro">:speech_balloon: Introducción</a>
+- <a href="#getting-started">:rocket: Cómo empezar</a>
+- <a href="#usage">:wrench: Uso</a>
+- <a href="#license">:page_facing_up: Licencia</a>
 </details>
 
 <div id="intro"></div>
 
-## :speech_balloon: Intro
+## :speech_balloon: Introducción
 
->Set of utility functions to parse, validate and generate a [Chilean R.U.T.](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario)
+>Set de funciones utilitarias para generar, procesar y validar un [R.U.T. Chileno](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario)
 >
->Meant for developers who want to interact, manipulate and validate Chilean R.U.T.
+>Pensado para desarroladores que deseen interactuar, manipular of validar RUTs.
 
 
 <div id="getting-started"></div>
 
-## :rocket: Getting started
+## :rocket: Cómo empezar
 
 ### Npm & Yarn install:
 
@@ -38,15 +38,13 @@ $ npm install @fdograph/rut-utilities
 $ yarn add @fdograph/rut-utilities
 ```
 
-<a href="#contents">:top: <sub>back to top</sub></a>
-
 <div id="getting-started"></div>
 
-## :wrench: Usage
+## :wrench: Uso
 
 > `validateRut(rut: string) => boolean`
 
-Returns `true` if the passed `string` corresponds to a fully valid R.U.T.
+Retorna `true` si el `string` dado corresponde a un R.U.T. válido.
 
 ```javascript
 import { validateRut } from '@fdograph/rut-utilities';
@@ -64,7 +62,7 @@ validateRut('9.999.999-9');
 
 > `validateRutList(ruts: string[]) => Map<string, boolean>`
 
-Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which each entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
+Retorna un [Mapa](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) que contendrá el resultado de la validación indexada en base a cada rut.
 
 ```javascript
 import { validateRutList } from '@fdograph/rut-utilities';
@@ -83,7 +81,7 @@ result.get(validRuts[1]);
 
 > `formatRut(rut: string, format?: RutFormat = RutFormat.DASH) => string`
 
-Formats a `rut-like` string according to the `format` parameter or returns the intact string if this doesn't match a `rut-like` string pattern.
+Da formato a una cadena con `forma de rut` (Ej: `"33.333.333-3"`) de acuerdo al valor del parámetro `format`. En el caso de que `rut` tenga un patrón no válido se retornará la cadena intacta.
 
 ```typescript
 enum RutFormat {
@@ -112,9 +110,7 @@ formatRut('jg7gk-1', RutFormat.DOTS);
 
 > `deconstructRut(rut: string) => DeconstructedRut`
 
-Returns an object containing the RUT's `digits` and `verifier`.
-
-You can use [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to access each.
+Descompone un cadena con forma de RUT y retorna un objeto con los valores `digits` y `verifier`
 
 ```typescript
 type DeconstructedRut = {
@@ -137,12 +133,10 @@ console.log(verifier);
 ```
 ---
 
-You can see the full set of utility functions in the [Tests](src/tests/main.test.ts)
+Puedes revisar el set completo de functiones utilitaria en los [Tests](src/tests/main.test.ts)
 
 <div id="license"></div>
 
 ## :page_facing_up: License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
-
-<a href="#contents">:top: <sub>back to top</sub></a>
