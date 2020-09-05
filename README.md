@@ -5,12 +5,14 @@
 ![Coverage - Lines](badges/badge-lines.svg)
 ![Coverage - Statements](badges/badge-statements.svg)
 
+### [:es: Versión en Español](README-es.md)
+
 <div id="contents"></div>
 
 <details>
   <summary><strong>Table of Contents</strong></summary>
   
-- <a href="README.md">:es: Versión en Español</a>
+- <a href="README-es.md">:es: Versión en Español</a>
 - <a href="#intro">:speech_balloon: Intro</a>
 - <a href="#getting-started">:rocket: Getting Started</a>
 - <a href="#usage">:wrench: Usage</a>
