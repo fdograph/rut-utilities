@@ -55,7 +55,7 @@ describe('isSuspiciousRut', () => {
       '13.354322-g',
       '13424-2',
     ];
-    
+
     validCases.forEach(rut => {
       expect(isSuspiciousRut(rut)).toEqual(true);
     });
@@ -156,14 +156,14 @@ describe('validateRutList', () => {
   it('Should validate a list of rut-like strings', () => {
     const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
     const validResult = validateRutList(validRuts);
-    
+
     validRuts.forEach((r) => {
       expect(validResult.get(r)).toEqual(true);
     });
 
     const invalidRuts = ['', '9.999.999-9', '14355245-5', '34566754-k', '12.344.568-4', '32.456.356-k'];
     const invalidResult = validateRutList(invalidRuts);
-    
+
     invalidRuts.forEach((r) => {
       expect(invalidResult.get(r)).toEqual(false);
     });
@@ -172,22 +172,25 @@ describe('validateRutList', () => {
 
 describe('formatRut', () => {
   it('Should format a rut-like string or return it intact', () => {
-    const longrutLikeStr = '44.333.222-1';
-    const shortutLikeStr = '333.222-1';
+    const longRutLikeStr = '44.333.222-1';
+    const shortRutLikeStr = '333.222-1';
 
-    expect(formatRut(longrutLikeStr)).toEqual('44333222-1');
-    expect(formatRut(longrutLikeStr, RutFormat.DASH)).toEqual('44333222-1');
-    expect(formatRut(longrutLikeStr, RutFormat.DOTS_DASH)).toEqual('44.333.222-1');
-    expect(formatRut(longrutLikeStr, RutFormat.DOTS)).toEqual('44.333.2221');
-    expect(formatRut(longrutLikeStr, null)).toEqual('443332221');
+    expect(formatRut(longRutLikeStr)).toEqual('44333222-1');
+    expect(formatRut(longRutLikeStr, RutFormat.DASH)).toEqual('44333222-1');
+    expect(formatRut(longRutLikeStr, RutFormat.DOTS_DASH)).toEqual('44.333.222-1');
+    expect(formatRut(longRutLikeStr, RutFormat.DOTS)).toEqual('44.333.2221');
+    expect(formatRut(longRutLikeStr, null)).toEqual('443332221');
 
-    expect(formatRut(shortutLikeStr)).toEqual('333222-1');
-    expect(formatRut(shortutLikeStr, RutFormat.DASH)).toEqual('333222-1');
-    expect(formatRut(shortutLikeStr, RutFormat.DOTS_DASH)).toEqual('333.222-1');
-    expect(formatRut(shortutLikeStr, RutFormat.DOTS)).toEqual('333.2221');
-    expect(formatRut(shortutLikeStr, null)).toEqual('3332221');
+    expect(formatRut(shortRutLikeStr)).toEqual('333222-1');
+    expect(formatRut(shortRutLikeStr, RutFormat.DASH)).toEqual('333222-1');
+    expect(formatRut(shortRutLikeStr, RutFormat.DOTS_DASH)).toEqual('333.222-1');
+    expect(formatRut(shortRutLikeStr, RutFormat.DOTS)).toEqual('333.2221');
+    expect(formatRut(shortRutLikeStr, null)).toEqual('3332221');
 
     expect(formatRut('ne93jkdf39f-')).toEqual('ne93jkdf39f-');
+    expect(formatRut('555.555-555555')).toEqual('555.555-555555');
+    expect(formatRut('900-000-000')).toEqual('900-000-000');
+    expect(formatRut('19.234-321-422.34')).toEqual('19.234-321-422.34');
     expect(formatRut('')).toEqual('');
   });
 });
