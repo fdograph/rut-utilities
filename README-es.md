@@ -5,7 +5,9 @@
 ![Coverage - Lines](badges/badge-lines.svg)
 ![Coverage - Statements](badges/badge-statements.svg)
 
-### [:uk: English version](README.md)
+## [:uk: English version](README.md)
+
+---
 
 <div id="contents"></div>
 
@@ -19,11 +21,13 @@
 - <a href="#license">:page_facing_up: Licencia</a>
 </details>
 
+---
+
 <div id="intro"></div>
 
 ## :speech_balloon: Introducción
 
->Set de funciones utilitarias para generar, procesar y validar un [R.U.T. Chileno](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario)
+>Set de funciones utilitarias para generar, procesar y validar un [R.U.T. Chileno](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario) completamente tipado.
 >
 >Pensado para desarroladores que deseen interactuar, manipular of validar RUTs.
 

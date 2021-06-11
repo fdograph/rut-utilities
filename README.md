@@ -5,7 +5,9 @@
 ![Coverage - Lines](badges/badge-lines.svg)
 ![Coverage - Statements](badges/badge-statements.svg)
 
-### [:es: Versión en Español](README-es.md)
+## [:es: Versión en Español](README-es.md)
+
+---
 
 <div id="contents"></div>
 
@@ -19,11 +21,13 @@
 - <a href="#license">:page_facing_up: License</a>
 </details>
 
+---
+
 <div id="intro"></div>
 
 ## :speech_balloon: Intro
 
->Set of utility functions to parse, validate and generate a [Chilean R.U.T.](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario)
+>Fully typed set of utility functions to parse, validate and generate a [Chilean R.U.T.](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario)
 >
 >Meant for developers who want to interact, manipulate and validate Chilean R.U.T.
 
