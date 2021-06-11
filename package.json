@@ -17,12 +17,21 @@
     "chile",
     "chilean",
     "chileno",
+    "validate",
+    "validar",
     "validator",
     "validador",
     "run",
     "rut",
+    "r.u.t",
+    "r.u.n",
+    "rut chileno",
     "cedula",
-    "identidad"
+    "identidad",
+    "comprobar",
+    "comprobador",
+    "empresas",
+    "dv"
   ],
   "author": "Fernando Silva M. (@fdograph)",
   "license": "Apache-2.0",
@@ -42,7 +51,7 @@
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "tslint-microsoft-contrib": "^6.2.0",
-    "tsutils": "~3.19.1",
-    "typescript": "^4.1.3"
+    "tsutils": "~3.21.0",
+    "typescript": "^4.3.2"
   }
 }
