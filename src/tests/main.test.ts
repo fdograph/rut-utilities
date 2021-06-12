@@ -1,3 +1,5 @@
+// tslint:disable-next-line:no-single-line-block-comment
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import {
   isRutLike,
   isSuspiciousRut,
@@ -15,7 +17,7 @@ import {
 
 describe('isRutLike', () => {
   it('Should validate Regex pattern for a rut-like string', () => {
-    const validCases: string[] = [
+    const validCases = [
       '9.999.999-9',
       '14355245-5',
       '34566754-k',
@@ -23,7 +25,7 @@ describe('isRutLike', () => {
       '32.456.356-k',
       '543.567-6',
     ];
-    const invalidCases: string[] = [
+    const invalidCases = [
       '23.432.432-t',
       'dfsg24rfr2f3-',
       '13.354322-g',
@@ -150,6 +152,28 @@ describe('validateRut', () => {
       expect(off).toEqual(false);
     });
   });
+
+  it('Should validate empty inputs', () => {
+    // @ts-ignore
+    expect(validateRut(false)).toEqual(false);
+    expect(validateRut(null)).toEqual(false);
+    expect(validateRut(undefined)).toEqual(false);
+  });
+
+  it('Should handle wrong input types properly', () => {
+    // @ts-ignore
+    expect(validateRut(0)).toEqual(false);
+    // @ts-ignore
+    expect(validateRut(['11'])).toEqual(false);
+    // @ts-ignore
+    expect(validateRut([0])).toEqual(false);
+    // @ts-ignore
+    expect(validateRut({})).toEqual(false);
+    // @ts-ignore
+    expect(validateRut({wot: 123})).toEqual(false);
+    // @ts-ignore
+    expect(validateRut()).toEqual(false);
+  });
 });
 
 describe('validateRutList', () => {
@@ -192,6 +216,35 @@ describe('formatRut', () => {
     expect(formatRut('900-000-000')).toEqual('900-000-000');
     expect(formatRut('19.234-321-422.34')).toEqual('19.234-321-422.34');
     expect(formatRut('')).toEqual('');
+    expect(formatRut(undefined)).toEqual('');
+    expect(formatRut(null)).toEqual('');
+    expect(formatRut()).toEqual('');
+  });
+  it('Should handle wrong input types properly', () => {
+    expect(() => {
+      // @ts-ignore
+      formatRut(false);
+    }).toThrowError('RUT needs to be a string or undefined');
+
+    expect(() => {
+      // @ts-ignore
+      formatRut(0);
+    }).toThrowError('RUT needs to be a string or undefined');
+
+    expect(() => {
+      // @ts-ignore
+      formatRut(['not', 'a', 'string']);
+    }).toThrowError('RUT needs to be a string or undefined');
+
+    expect(() => {
+      // @ts-ignore
+      formatRut(123355);
+    }).toThrowError('RUT needs to be a string or undefined');
+
+    expect(() => {
+      // @ts-ignore
+      formatRut({what: 123435});
+    }).toThrowError('RUT needs to be a string or undefined');
   });
 });
 

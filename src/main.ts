@@ -22,14 +22,16 @@ export enum RutFormat {
   DOTS_DASH,
 }
 
-export const formatRut = (rut: string, format = RutFormat.DASH): string => {
+export const formatRut = (rut?: string, format = RutFormat.DASH): string => {
+  if (rut === null || rut === undefined) return '';
+  if (typeof rut !== 'string') throw new TypeError('RUT needs to be a string or undefined');
   if (!isRutLike(rut)) return rut;
 
   switch (format) {
     case RutFormat.DOTS:
       return rut.replace(
         rutLikePattern(),
-        (...args) => `${args[1] ? `${args[1]}.` : ''}${args[2]}.${args[3]}${args[4]}`
+        (...m) => `${m[1] ? `${m[1]}.` : ''}${m[2]}.${m[3]}${m[4]}`
       );
 
     case RutFormat.DASH:
@@ -38,7 +40,7 @@ export const formatRut = (rut: string, format = RutFormat.DASH): string => {
     case RutFormat.DOTS_DASH:
       return rut.replace(
         rutLikePattern(),
-        (...args) => `${args[1] ? `${args[1]}.` : ''}${args[2]}.${args[3]}-${args[4]}`
+        (...m) => `${m[1] ? `${m[1]}.` : ''}${m[2]}.${m[3]}-${m[4]}`
       );
 
     default:
@@ -65,19 +67,23 @@ export const calculateRutVerifier = (digits: string): string => {
   return `${(11 - res)}`;
 };
 
-export const validateRut = (rut: string, noSuspicious = true): boolean => {
+export const validateRut = (rut?: string, noSuspicious = true): boolean => {
   if (!isRutLike(rut)) return false;
   if (noSuspicious && isSuspiciousRut(rut)) return false;
   return getRutVerifier(rut) === calculateRutVerifier(getRutDigits(rut));
 };
 
 type RutListResult = Map<string, boolean>;
-export const validateRutList = (ruts: string[], noSuspicious = true): RutListResult => {
-  return ruts.reduce<RutListResult>((result, rut) => {
-    result.set(rut, validateRut(rut, noSuspicious));
-    return result;
-  }, new Map<string, boolean>());
+export const validateRutList = (ruts: Iterable<string>, noSuspicious = true): RutListResult => {
+  const res = new Map<string, boolean>();
+
+  for(const rut of ruts) {
+    res.set(rut, validateRut(rut, noSuspicious));
+  }
+
+  return res;
 };
+
 
 export const generateRut = (): string => {
   // tslint:disable-next-line:insecure-random
