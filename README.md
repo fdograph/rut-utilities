@@ -50,7 +50,7 @@ $ yarn add @fdograph/rut-utilities
 
 ## :wrench: Usage
 
-> `validateRut(rut: string) => boolean`
+> `validateRut(rut?: string) => boolean`
 
 Returns `true` if the passed `string` corresponds to a fully valid R.U.T.
 
@@ -68,7 +68,7 @@ validateRut('9.999.999-9');
 ```
 ---
 
-> `validateRutList(ruts: string[]) => Map<string, boolean>`
+> `validateRutList(ruts: Iterable<string>) => Map<string, boolean>`
 
 Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which each entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
 
@@ -87,7 +87,7 @@ result.get(validRuts[1]);
 ```
 ---
 
-> `formatRut(rut: string, format?: RutFormat = RutFormat.DASH) => string`
+> `formatRut(rut?: string, format?: RutFormat = RutFormat.DASH) => string`
 
 Formats a `rut-like` string according to the `format` parameter or returns the intact string if this doesn't match a `rut-like` string pattern.
 

@@ -48,7 +48,7 @@ $ yarn add @fdograph/rut-utilities
 
 ## :wrench: Uso
 
-> `validateRut(rut: string) => boolean`
+> `validateRut(rut?: string) => boolean`
 
 Retorna `true` si el `string` dado corresponde a un R.U.T. válido.
 
@@ -66,7 +66,7 @@ validateRut('9.999.999-9');
 ```
 ---
 
-> `validateRutList(ruts: string[]) => Map<string, boolean>`
+> `validateRutList(ruts: Iterable<string>) => Map<string, boolean>`
 
 Retorna un [Mapa](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) que contendrá el resultado de la validación indexada en base a cada rut.
 
@@ -85,7 +85,7 @@ result.get(validRuts[1]);
 ```
 ---
 
-> `formatRut(rut: string, format?: RutFormat = RutFormat.DASH) => string`
+> `formatRut(rut?: string, format?: RutFormat = RutFormat.DASH) => string`
 
 Da formato a una cadena con `forma de rut` (Ej: `"33.333.333-3"`) de acuerdo al valor del parámetro `format`. En el caso de que `rut` tenga un patrón no válido se retornará la cadena intacta.
 
