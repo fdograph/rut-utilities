@@ -1,6 +1,6 @@
 {
   "name": "@fdograph/rut-utilities",
-  "version": "1.2.8",
+  "version": "1.3.8",
   "repository": "https://github.com/fdograph/rut-utilities",
   "description": "Fully typed set of utility functions to parse, validate and generate a Chilean R.U.T. \n Set de funciones utilitarias para generar, procesar y validar un R.U.T. Chileno completamente tipado.",
   "main": "build/main.js",
