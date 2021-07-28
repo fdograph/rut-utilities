@@ -48,11 +48,12 @@ $ yarn add @fdograph/rut-utilities
 
 ## :wrench: Uso
 
-> `validateRut(rut?: string) => boolean`
+> `validateRut(rut?: string, noSuspicious = true) => boolean`
 
-Retorna `true` si el `string` dado corresponde a un R.U.T. válido.
+Retorna `true` si el `string` dado corresponde a un R.U.T. válido. Esto es una cadena con forma de R.U.T. que pase la validacion de un patron the R.U.T. y que ademas pase la validacion hecha por el algoritmo matematico oficial y que no tenga el patron the un R.U.T. "sospechoso", estos son R.U.T. que se conforman por el mismo número repetido. Ejemplos: `44.444.444-4`, `22.222.222-2`, `3.333.333-3`, `9999999-9`
 
-```javascript
+
+```typescript
 import { validateRut } from '@fdograph/rut-utilities';
 
 validateRut('18585543-0');
@@ -64,13 +65,32 @@ validateRut('18.585.543-0');
 validateRut('9.999.999-9');
 > false
 ```
+
+Para evitar la validación de RUTs "sospechosos" es posible pasarle al método el segundo argumento como `false`. Esto cambiará el comportamiento por defecto y la validación solo tomará en cuenta el patrón de RUT básico y la validacion por el algoritmo oficial.
+
+```typescript
+import { validateRut } from '@fdograph/rut-utilities';
+
+validateRut('18585543-0', false);
+> true
+
+validateRut('18.585.543-0', false);
+> true
+
+validateRut('9.999.999-9', false);
+> true
+
+validateRut('44.444.444-4', false);
+> true
+```
+
 ---
 
-> `validateRutList(ruts: Iterable<string>) => Map<string, boolean>`
+> `validateRutList(ruts: Iterable<string>, noSuspicious = true) => Map<string, boolean>`
 
 Retorna un [Mapa](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) que contendrá el resultado de la validación indexada en base a cada rut.
 
-```javascript
+```typescript
 import { validateRutList } from '@fdograph/rut-utilities';
 
 const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
@@ -96,7 +116,7 @@ enum RutFormat {
 	DOTS_DASH
 }
 ```
-```javascript
+```typescript
 import { formatRut, RutFormat } from '@fdograph/rut-utilities';
 
 formatRut('44.333.222-1');
@@ -125,7 +145,7 @@ type DeconstructedRut = {
 }
 ```
 
-```javascript
+```typescript
 import { deconstructRut } from '@fdograph/rut-utilities';
 
 const { digits, verifier } = deconstructRut('7775735-k');
