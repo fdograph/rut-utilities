@@ -90,7 +90,7 @@ validateRut('44.444.444-4', false);
 
 ---
 
-> `validateRutList(ruts: Iterable<string>) => Map<string, boolean>`
+> `validateRutList(ruts: Iterable<string>, noSuspicious = false) => Map<string, boolean>`
 
 Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which each entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
 
