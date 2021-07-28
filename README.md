@@ -50,11 +50,11 @@ $ yarn add @fdograph/rut-utilities
 
 ## :wrench: Usage
 
-> `validateRut(rut?: string) => boolean`
+> `validateRut(rut?: string, noSuspicious = true) => boolean`
 
-Returns `true` if the passed `string` corresponds to a fully valid R.U.T.
+Returns `true` if the passed `string` corresponds to a fully valid R.U.T. This is a valid `rut-like` `string` that passes the official mathematical validation algorithm and does not conform to the "suspicious" R.U.T. pattern. Eg: `44.444.444-4`, `22.222.222-2`, `3.333.333-3`, `9999999-9`
 
-```javascript
+```typescript
 import { validateRut } from '@fdograph/rut-utilities';
 
 validateRut('18585543-0');
@@ -65,14 +65,36 @@ validateRut('18.585.543-0');
 
 validateRut('9.999.999-9');
 > false
+
+validateRut('44.444.444-4');
+> false
 ```
+
+To avoid the "suspicious" R.U.T. validation we can override the `noSuspicious` argument and pass it as `false`. This will change the behaviour of this method making it skip the "suspicious" pattern validation.
+
+```typescript
+import { validateRut } from '@fdograph/rut-utilities';
+
+validateRut('18585543-0', false);
+> true
+
+validateRut('18.585.543-0', false);
+> true
+
+validateRut('9.999.999-9', false);
+> true
+
+validateRut('44.444.444-4', false);
+> true
+```
+
 ---
 
 > `validateRutList(ruts: Iterable<string>) => Map<string, boolean>`
 
 Returns a results [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) in which each entry has a `key` corresponding to the input and the `value` corresponding to its validation result.
 
-```javascript
+```typescript
 import { validateRutList } from '@fdograph/rut-utilities';
 
 const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
@@ -98,7 +120,7 @@ enum RutFormat {
 	DOTS_DASH
 }
 ```
-```javascript
+```typescript
 import { formatRut, RutFormat } from '@fdograph/rut-utilities';
 
 formatRut('44.333.222-1');
@@ -129,7 +151,7 @@ type DeconstructedRut = {
 }
 ```
 
-```javascript
+```typescript
 import { deconstructRut } from '@fdograph/rut-utilities';
 
 const { digits, verifier } = deconstructRut('7775735-k');
