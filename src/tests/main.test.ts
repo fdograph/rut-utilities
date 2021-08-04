@@ -118,6 +118,14 @@ describe('validateRut', () => {
     });
   });
 
+  it('Should validate uppercase and lowercase', () => {
+    expect(validateRut('13198863-k')).toEqual(true);
+    expect(validateRut('13198863-K')).toEqual(true);
+
+    expect(validateRut('7775735-k')).toEqual(true);
+    expect(validateRut('13198863-K')).toEqual(true);
+  });
+
   it('Should skip suspicious-rut validation when toggling noSuspicious param', () => {
     const suspiciousValidRuts = ['11111111-1', '22222222-2', '99999999-9'];
     const suspiciousInvalidRuts = ['3333333-3', '2222222-k', ''];
