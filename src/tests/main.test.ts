@@ -106,8 +106,8 @@ describe('calculateRutVerifier', () => {
 
 describe('validateRut', () => {
   it('Should validate a rut-like string', () => {
-    const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
-    const invalidRuts = ['', '9.999.999-9', '14355245-5', '34566754-k', '12.344.568-4', '32.456.356-k'];
+    const validRuts = ['7775735-k', '18585543-0', '18348353-6', '13198863-K', '13198863-k'];
+    const invalidRuts = ['', '9.999.999-9', '14355245-5', '34566754-k', '12.344.568-4', '32.456.356-k', '32.456.356-K'];
 
     validRuts.forEach((test) => {
       expect(validateRut(test)).toEqual(true);
