@@ -23,20 +23,17 @@ describe('isRutLike', () => {
       '34566754-k',
       '12.344.568-4',
       '32.456.356-k',
+      '32.456.356-K',
       '543.567-6',
+      '13198863-K',
     ];
-    const invalidCases = [
-      '23.432.432-t',
-      'dfsg24rfr2f3-',
-      '13.354322-g',
-      '13424-2',
-    ];
+    const invalidCases = ['23.432.432-t', 'dfsg24rfr2f3-', '13.354322-g', '13424-2'];
 
-    validCases.forEach(rut => {
+    validCases.forEach((rut) => {
       expect(isRutLike(rut)).toEqual(true);
     });
 
-    invalidCases.forEach(rut => {
+    invalidCases.forEach((rut) => {
       expect(isRutLike(rut)).toEqual(false);
     });
   });
@@ -44,25 +41,14 @@ describe('isRutLike', () => {
 
 describe('isSuspiciousRut', () => {
   it('Should validate Regex pattern for a suspicious-rut string', () => {
-    const validCases = [
-      '11.111.111-1',
-      '2.222.222-k',
-      '22222222',
-    ];
-    const invalidCases = [
-      '18585543-0',
-      '2s222t222-k',
-      '23.432.432-t',
-      'dfsg24rfr2f3-',
-      '13.354322-g',
-      '13424-2',
-    ];
+    const validCases = ['11.111.111-1', '2.222.222-k', '22222222'];
+    const invalidCases = ['18585543-0', '2s222t222-k', '23.432.432-t', 'dfsg24rfr2f3-', '13.354322-g', '13424-2'];
 
-    validCases.forEach(rut => {
+    validCases.forEach((rut) => {
       expect(isSuspiciousRut(rut)).toEqual(true);
     });
 
-    invalidCases.forEach(rut => {
+    invalidCases.forEach((rut) => {
       expect(isSuspiciousRut(rut)).toEqual(false);
     });
   });
@@ -120,14 +106,14 @@ describe('calculateRutVerifier', () => {
 
 describe('validateRut', () => {
   it('Should validate a rut-like string', () => {
-    const validRuts = ['7775735-k', '18585543-0', '18348353-6'];
-    const invalidRuts = ['', '9.999.999-9', '14355245-5', '34566754-k', '12.344.568-4', '32.456.356-k'];
+    const validRuts = ['7775735-k', '18585543-0', '18348353-6', '13198863-K', '13198863-k'];
+    const invalidRuts = ['', '9.999.999-9', '14355245-5', '34566754-k', '12.344.568-4', '32.456.356-k', '32.456.356-K'];
 
-    validRuts.forEach(test => {
+    validRuts.forEach((test) => {
       expect(validateRut(test)).toEqual(true);
     });
 
-    invalidRuts.forEach(test => {
+    invalidRuts.forEach((test) => {
       expect(validateRut(test)).toEqual(false);
     });
   });
@@ -136,7 +122,7 @@ describe('validateRut', () => {
     const suspiciousValidRuts = ['11111111-1', '22222222-2', '99999999-9'];
     const suspiciousInvalidRuts = ['3333333-3', '2222222-k', ''];
 
-    suspiciousValidRuts.forEach(rut => {
+    suspiciousValidRuts.forEach((rut) => {
       const on = validateRut(rut);
       const off = validateRut(rut, false);
 
@@ -144,7 +130,7 @@ describe('validateRut', () => {
       expect(off).toEqual(true);
     });
 
-    suspiciousInvalidRuts.forEach(rut => {
+    suspiciousInvalidRuts.forEach((rut) => {
       const on = validateRut(rut, true);
       const off = validateRut(rut, false);
 
@@ -170,7 +156,7 @@ describe('validateRut', () => {
     // @ts-ignore
     expect(validateRut({})).toEqual(false);
     // @ts-ignore
-    expect(validateRut({wot: 123})).toEqual(false);
+    expect(validateRut({ wot: 123 })).toEqual(false);
     // @ts-ignore
     expect(validateRut()).toEqual(false);
   });
@@ -243,7 +229,7 @@ describe('formatRut', () => {
 
     expect(() => {
       // @ts-ignore
-      formatRut({what: 123435});
+      formatRut({ what: 123435 });
     }).toThrowError('RUT needs to be a string or undefined');
   });
 });

@@ -96,7 +96,7 @@ export const calculateRutVerifier = (digits: string): string => {
 export const validateRut = (rut?: string, noSuspicious = true): boolean => {
   if (!isRutLike(rut)) return false;
   if (noSuspicious && isSuspiciousRut(rut)) return false;
-  return getRutVerifier(rut) === calculateRutVerifier(getRutDigits(rut));
+  return getRutVerifier(rut).toLowerCase() === calculateRutVerifier(getRutDigits(rut));
 };
 
 type RutListResult = Map<string, boolean>;
