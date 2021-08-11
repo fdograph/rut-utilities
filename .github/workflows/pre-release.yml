@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - "ci_setup"
+      - "master"
 
 jobs:
   pre-release:
