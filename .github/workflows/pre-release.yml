@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - "ci_setup"
+
+jobs:
+  pre-release:
+    name: "Pre Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Install"
+        run: yarn
+      - name: "Run Test"
+        run: |
+          yarn run test
+      - name: "Build"
+        run: |
+          yarn run clean
+          yarn run buil
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
