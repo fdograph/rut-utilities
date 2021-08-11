@@ -14,9 +14,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14.x"
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@fdograph'
 
       - name: "Install"
-        run: yarn
+        run: npm install
 
       - name: "Run Test"
         run: |

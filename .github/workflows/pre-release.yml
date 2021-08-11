@@ -14,15 +14,15 @@ jobs:
           node-version: "14.x"
 
       - name: "Install"
-        run: yarn
+        run: npm install
 
       - name: "Run Test"
-        run: yarn run test
+        run: npm run test
 
       - name: "Build"
         run: |
-          yarn run clean
-          yarn run build
+          npm run clean
+          npm run build
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
