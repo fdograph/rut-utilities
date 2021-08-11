@@ -17,7 +17,7 @@ jobs:
       - name: "Build"
         run: |
           yarn run clean
-          yarn run buil
+          yarn run build
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
