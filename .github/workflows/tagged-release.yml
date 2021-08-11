@@ -15,24 +15,24 @@ jobs:
         with:
           node-version: "14.x"
 
-        - name: "Install"
-          run: yarn
+      - name: "Install"
+        run: yarn
 
-        - name: "Run Test"
-          run: |
-            npm run test
+      - name: "Run Test"
+        run: |
+          npm run test
 
-        - name: "Build"
-          run: |
-            npm run clean
-            npm run build
+      - name: "Build"
+        run: |
+          npm run clean
+          npm run build
 
-        - name: "Publish to npm"
-        - run: npm publish
-            env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: "Publish to npm"
+      - run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-        - uses: "marvinpinto/action-automatic-releases@latest"
-          with:
-            repo_token: "${{ secrets.GITHUB_TOKEN }}"
-            prerelease: false
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
