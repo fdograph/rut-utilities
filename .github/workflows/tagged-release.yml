@@ -1,11 +1,6 @@
 name: "tagged-release"
 
-on:
-  workflow_dispatch
-
-  push:
-    tags:
-      - "v*"
+on: workflow_dispatch
 
 jobs:
   tagged-release:
