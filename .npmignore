@@ -5,5 +5,12 @@ coverage
 .eslintrc.json
 .prettierrc.js
 jest.config.js
+.github
+.idea
+.vscode
+.prettierrc
+.travis.yml
+badges
+build/tests
 
 
