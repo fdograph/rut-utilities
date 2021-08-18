@@ -15,17 +15,12 @@ jobs:
         with:
           node-version: "14.x"
           registry-url: 'https://registry.npmjs.org'
-          scope: '@fdograph'
 
       - name: "CI"
-          run: npm ci
-
-      - name: "Install"
-        run: npm install
+        run: npm ci
 
       - name: "Run Test"
-        run: |
-          npm run test
+        run: npm run test
 
       - name: "Build"
         run: |
