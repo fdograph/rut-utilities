@@ -27,6 +27,7 @@ jobs:
       - name: "Publish to npm"
         run: |
           npm config set registry http://registry.npmjs.org
+          npm login
           npm publish
 
       - uses: "marvinpinto/action-automatic-releases@latest"
