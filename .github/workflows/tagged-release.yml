@@ -28,7 +28,9 @@ jobs:
           npm run build
 
       - name: "Publish to npm"
-        run: npm publish
+        run: |
+          npm config set registry http://registry.npmjs.org
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
