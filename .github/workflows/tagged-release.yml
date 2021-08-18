@@ -17,7 +17,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@fdograph'
 
-      - run: npm ci
+      - name: "CI"
+          run: npm ci
 
       - name: "Install"
         run: npm install
