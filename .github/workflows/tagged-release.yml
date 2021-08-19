@@ -3,8 +3,23 @@ name: "tagged-release"
 on: workflow_dispatch
 
 jobs:
+  test:
+    name: "Run Test"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+
+      - name: "Run Test"
+        run: |
+          npm ci
+          npm run test
+
   tagged-release:
     name: "Tagged Release"
+    needs: [test]
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
@@ -13,16 +28,10 @@ jobs:
           node-version: "14.x"
           registry-url: 'https://registry.npmjs.org'
 
-      - name: "CI"
-        run: npm ci
-
-      - name: "Run Test"
-        run: npm run test
-
       - name: "Build"
         run: |
-          npm run clean
-          npm run build
+          npm ci
+          npm run build:prod
 
       - name: "Publish to npm"
         run: |
