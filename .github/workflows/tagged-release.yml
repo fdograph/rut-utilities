@@ -36,9 +36,9 @@ jobs:
       - name: "Publish to npm"
         run: |
           npm config set registry http://registry.npmjs.org
-          npm login
           npm publish
         env:
+          NOVE_ENV: CI
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       - uses: "marvinpinto/action-automatic-releases@latest"
