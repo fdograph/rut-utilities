@@ -17,9 +17,9 @@ jobs:
           npm ci
           npm run test
 
-  tagged-release:
-    name: "Tagged Release"
-    needs: [test]
+  npm-publish:
+    name: "NPM publish"
+    needs: [ test ]
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
@@ -41,6 +41,12 @@ jobs:
           NOVE_ENV: CI
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
+  release:
+    name: "Release"
+    needs: [test, npm-publish]
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
