@@ -38,8 +38,8 @@ jobs:
           npm config set registry http://registry.npmjs.org
           npm publish
         env:
-          NOVE_ENV: CI
-          NODE_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NODE_ENV: CI
+          NPM_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
   release:
