@@ -29,6 +29,8 @@ jobs:
           npm config set registry http://registry.npmjs.org
           npm login
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
