@@ -12,8 +12,7 @@
     "build:prod": "npm run clean && npm run build",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage && jest-coverage-badges --output './badges'",
-    "test:watch": "jest --watch",
-    "prepublish": "npm run test && npm run build:prod"
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "chile",
