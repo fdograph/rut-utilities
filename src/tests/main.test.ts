@@ -15,6 +15,7 @@ import {
   deconstructRut,
 } from '../main';
 
+
 describe('isRutLike', () => {
   it('Should validate Regex pattern for a rut-like string', () => {
     const validCases = [
