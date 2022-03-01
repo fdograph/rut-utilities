@@ -1,5 +1,3 @@
-// tslint:disable-next-line:no-single-line-block-comment
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import {
   isRutLike,
   isSuspiciousRut,
@@ -155,18 +153,10 @@ describe('validateRut', () => {
   });
 
   it('Should handle wrong input types properly', () => {
-    // @ts-ignore
-    expect(validateRut(0)).toEqual(false);
-    // @ts-ignore
-    expect(validateRut(['11'])).toEqual(false);
-    // @ts-ignore
-    expect(validateRut([0])).toEqual(false);
-    // @ts-ignore
-    expect(validateRut({})).toEqual(false);
-    // @ts-ignore
-    expect(validateRut({ wot: 123 })).toEqual(false);
-    // @ts-ignore
-    expect(validateRut()).toEqual(false);
+    [0, ['11'], [0], {}, { wot: 123 }, undefined].forEach((val) => {
+      // @ts-ignore
+      expect(validateRut(val)).toEqual(false);
+    });
   });
 });
 
@@ -215,30 +205,12 @@ describe('formatRut', () => {
     expect(formatRut()).toEqual('');
   });
   it('Should handle wrong input types properly', () => {
-    expect(() => {
-      // @ts-ignore
-      formatRut(false);
-    }).toThrowError('RUT needs to be a string or undefined');
-
-    expect(() => {
-      // @ts-ignore
-      formatRut(0);
-    }).toThrowError('RUT needs to be a string or undefined');
-
-    expect(() => {
-      // @ts-ignore
-      formatRut(['not', 'a', 'string']);
-    }).toThrowError('RUT needs to be a string or undefined');
-
-    expect(() => {
-      // @ts-ignore
-      formatRut(123355);
-    }).toThrowError('RUT needs to be a string or undefined');
-
-    expect(() => {
-      // @ts-ignore
-      formatRut({ what: 123435 });
-    }).toThrowError('RUT needs to be a string or undefined');
+    [false, 0, ['not', 'a', 'string'], 123355, { what: 123435 }].forEach((val) => {
+      expect(() => {
+        // @ts-ignore
+        formatRut(val);
+      }).toThrowError('RUT needs to be a string or undefined');
+    });
   });
 });
 
